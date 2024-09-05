@@ -5,13 +5,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".weatherActivity">
+    tools:context=".WeatherActivity">
 
-    <fragment
-        android:id="@+id/ForecastFrag"
-        android:layout_width="354dp"
-        android:layout_height="461dp"
-        android:layout_marginEnd="28dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="168dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
