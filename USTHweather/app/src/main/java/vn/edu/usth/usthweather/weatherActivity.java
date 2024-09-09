@@ -2,6 +2,8 @@ package vn.edu.usth.usthweather;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,22 +19,26 @@ public class WeatherActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_weather);
         // Create a new Fragment to be placed in the activity layout
-        ForecastFragment firstFragment = new ForecastFragment();
-        // Add the fragment to the 'container' FrameLayout
-        getSupportFragmentManager().beginTransaction().add(
-                R.id.main, firstFragment).commit();
+//        ForecastFragment firstFragment = new ForecastFragment();
+//        // Add the fragment to the 'container' FrameLayout
+//        getSupportFragmentManager().beginTransaction().add(
+//                R.id.main, firstFragment).commit();
 
+//        WeatherFragment secondFragment = new WeatherFragment();
+//        getSupportFragmentManager().beginTransaction().add(
+//                R.id.main, secondFragment).commit();
+//
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-    }
+}
 
     @Override
     protected void onStart() {
         super.onStart();
-        Log.i("onstart","onstart");
+        Log.i("onStart","onStart");
     }
 
     @Override
