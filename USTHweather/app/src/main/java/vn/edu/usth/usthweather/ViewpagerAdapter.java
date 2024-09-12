@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 
 public class ViewpagerAdapter extends FragmentPagerAdapter {
-
+    private String[] tabTitles = new String[]{"HaNoi", "Paris", "HCM"};
 
     public ViewpagerAdapter(@NonNull FragmentManager fm) {
         super(fm);
@@ -27,5 +27,10 @@ public class ViewpagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         return 3;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return tabTitles[position];
     }
 }
