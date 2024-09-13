@@ -44,9 +44,9 @@
     </string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="_12c_n_rainy">12C \n Rainy</string>
+    <string name="_12c_n_rainy">12C \n Có mưa</string>
     <string name="ha_noi">Ha Noi</string>
-    <string name="monday">MonDay</string>
-    <string name="rainy">Rainy</string>
-    <string name="thursday">Thursday</string>
+    <string name="monday">Thứ 2</string>
+    <string name="rainy">Có Mưa</string>
+    <string name="thursday">Thứ 5</string>
 </resources>

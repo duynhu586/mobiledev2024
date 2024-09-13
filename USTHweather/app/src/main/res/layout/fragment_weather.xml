@@ -12,7 +12,7 @@
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:text="12C Rainy" />
+        android:text="@string/_12c_n_rainy" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -23,7 +23,7 @@
     <TextView
         android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:text="Ha Noi"
+        android:text="@string/ha_noi"
         android:layout_alignParentRight="true" />
 
 </RelativeLayout>
