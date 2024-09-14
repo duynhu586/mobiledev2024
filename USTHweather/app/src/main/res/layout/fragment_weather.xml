@@ -3,27 +3,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/weatherFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".WeatherFragment"
-    android:background="#90ee90">
+    android:background="@drawable/frame"
+    >
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="50dp"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:text="@string/_12c_n_rainy" />
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="10dp">
+
+        <TextView
+            android:id="@+id/weatherStatus"
+            android:layout_width="193dp"
+            android:layout_height="wrap_content"
+            android:text="@string/_12c_n_rainy" />
+
+        <TextView
+            android:id="@+id/city"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ha_noi"
+
+            android:textAlignment="textEnd" />
+    </LinearLayout>
+
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:src="@drawable/img" />
+        android:src="@drawable/img"
+        />
 
-    <TextView
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:text="@string/ha_noi"
-        android:layout_alignParentRight="true" />
+
+
 
 </RelativeLayout>
