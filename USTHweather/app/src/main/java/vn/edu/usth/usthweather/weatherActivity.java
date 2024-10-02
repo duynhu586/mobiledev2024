@@ -71,6 +71,37 @@ public class WeatherActivity extends AppCompatActivity {
 
         ImageView refreshButton = toolbar.findViewById(R.id.refreshButton);
 
+        class MyTask extends AsyncTask<String, Integer, Bitmap> {
+
+            @Override
+            protected Bitmap doInBackground(String... params) {
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                return null;
+            }
+
+            protected void onPreExecute() {
+// do some preparation here, if needed
+            }
+
+            @Override
+            protected void onProgressUpdate(Integer... values) {
+// This method is called in the main thread, so it's possible
+// to update UI to reflect the worker thread progress here.
+// In a network access task, this should update a progress bar
+// to reflect how many percent of data has been retrieved
+            }
+
+            @Override
+            protected void onPostExecute(Bitmap bitmap) {
+                Toast.makeText(refreshButton.getContext(), "refreshed", Toast.LENGTH_SHORT).show();
+// This method is called in the main thread. After #doInBackground returns
+// the bitmap data, we simply set it to an ImageView using ImageView.setImageBitmap()
+            }
+        }
         final Handler handler = new Handler(Looper.getMainLooper()) {
             @Override
             public void handleMessage(Message msg) {
@@ -78,17 +109,15 @@ public class WeatherActivity extends AppCompatActivity {
                 Toast.makeText(refreshButton.getContext(), content, Toast.LENGTH_SHORT).show();
             }
         };
+
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
 // this method is run in a worker thread
-                try {
-// wait for 5 seconds to simulate a long network access
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-// Assume that we got our data from server
+                // wait for 5 seconds to simulate a long network access
+                MyTask task = new MyTask();
+                task.execute("http://ict.usth.edu.vn/wp-content/uploads/usth/usthlogo.png");
+                // Assume that we got our data from server
                 Bundle bundle = new Bundle();
                 bundle.putString("server_response", "Refreshed");
 // notify main thread
@@ -105,39 +134,9 @@ public class WeatherActivity extends AppCompatActivity {
             }
         });
 
-        MyTask task = new MyTask();
-        task.execute("http://ict.usth.edu.vn/wp-content/uploads/usth/usthlogo.png");
+
     }
-    private class MyTask extends AsyncTask<String, Integer, Bitmap> {
 
-        @Override
-        protected Bitmap doInBackground(String... params) {
-            try {
-                Thread.sleep(5000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            return null;
-        }
-
-        protected void onPreExecute() {
-// do some preparation here, if needed
-        }
-
-        @Override
-        protected void onProgressUpdate(Integer... values) {
-// This method is called in the main thread, so it's possible
-// to update UI to reflect the worker thread progress here.
-// In a network access task, this should update a progress bar
-// to reflect how many percent of data has been retrieved
-        }
-
-        @Override
-        protected void onPostExecute(Bitmap bitmap) {
-// This method is called in the main thread. After #doInBackground returns
-// the bitmap data, we simply set it to an ImageView using ImageView.setImageBitmap()
-        }
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
