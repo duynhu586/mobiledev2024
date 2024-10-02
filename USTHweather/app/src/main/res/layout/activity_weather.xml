@@ -9,6 +9,23 @@
     android:layout_height="match_parent"
     tools:context=".WeatherActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:paddingTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:id="@+id/refreshButton"
+            android:src="@drawable/baseline_refresh_24"
+            android:paddingEnd="10dp"
+            android:layout_gravity="end"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab"
         android:layout_width="match_parent"
